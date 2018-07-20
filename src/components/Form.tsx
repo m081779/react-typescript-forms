@@ -6,7 +6,7 @@ interface IFormState {
   lastName: string
 }
 
-export class Form extends React.Component <IFormState>{
+class Form extends React.Component <IFormState>{
   public state: IFormState = {
     "firstName": "",
     "lastName": ""
@@ -56,4 +56,4 @@ export class Form extends React.Component <IFormState>{
 
 
 
-// export default Form;
+export default Form;
