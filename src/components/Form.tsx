@@ -1,13 +1,14 @@
 import * as React from 'react';
 
 
-interface IFormState {
-  firstName: string,
-  lastName: string
+export interface IFormState {
+  "firstName": string;
+  "lastName": string;
 }
 
-class Form extends React.Component <IFormState>{
-  public state: IFormState = {
+
+ class Form extends React.Component<IFormState>{
+  state: IFormState = {
     "firstName": "",
     "lastName": ""
   }
@@ -18,12 +19,12 @@ class Form extends React.Component <IFormState>{
     this.setState({ [name]: value});
   }
 
-  handleFormSubmit = (e: React.FormEvent<HTMLInputElement>):void => {
-    e.preventDefault();
-    this.setState([
+  handleFormSubmit = (event: any):void => {
+    event.preventDefault();
+    this.setState({
       firstName: "",
       lastName : "",
-    ])
+    })
   }
 
   render() {
@@ -53,7 +54,5 @@ class Form extends React.Component <IFormState>{
     );
   }
 }
-
-
 
 export default Form;
