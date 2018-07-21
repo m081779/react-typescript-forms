@@ -2,10 +2,8 @@ import * as React from 'react';
 import './App.css';
 import Form from './components/Form';
 
-
-
 class App extends React.Component {
-  render() {
+  public render() {
     return(
       <div>
         <Form />

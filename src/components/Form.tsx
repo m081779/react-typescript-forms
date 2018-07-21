@@ -1,25 +1,23 @@
 import * as React from 'react';
 
-
 export interface IFormState {
-  "firstName": string;
-  "lastName": string;
+  firstName: string;
+  lastName: string;
 }
 
-
- class Form extends React.Component<IFormState>{
-  state: IFormState = {
-    "firstName": "",
-    "lastName": ""
+class Form extends React.Component<{}, IFormState>{
+  public state: IFormState = {
+    firstName: "",
+    lastName: ""
   }
 
-  handleInputChange = (e: React.FormEvent<HTMLInputElement>): void => {
+  public handleInputChange = (e: React.FormEvent<HTMLInputElement>): void => {
     e.preventDefault();
-    let { name, value } = e.currentTarget;
-    this.setState({ [name]: value});
+    const { name, value } = e.currentTarget;
+    name === "firstName" ? this.setState({firstName: value}) : this.setState({lastName: value}); // Hacky
   }
 
-  handleFormSubmit = (event: any):void => {
+  public handleFormSubmit = (event: any):void => {
     event.preventDefault();
     this.setState({
       firstName: "",
@@ -27,7 +25,7 @@ export interface IFormState {
     })
   }
 
-  render() {
+  public render() {
     return(
       <div>
         <div>
