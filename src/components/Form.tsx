@@ -13,8 +13,12 @@ class Form extends React.Component<{}, IFormState>{
 
   public handleInputChange = (e: React.FormEvent<HTMLInputElement>): void => {
     e.preventDefault();
+
     const { name, value } = e.currentTarget;
-    name === "firstName" ? this.setState({firstName: value}) : this.setState({lastName: value}); // Hacky
+    const setObj: {} = {
+      [name]: value
+    }
+    this.setState(setObj);
   }
 
   public handleFormSubmit = (event: any):void => {
